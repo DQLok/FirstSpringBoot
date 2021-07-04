@@ -1,0 +1,92 @@
+https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
+https://www.youtube.com/watch?v=g_z4gRybI68&list=PLlahAO-uyDzIu2skQWjVHaWrhP34KbxDX
+https://loda.me/spring-boot-0-series-lam-chu-spring-boot-zero-to-hero-loda1558963914472/
+
+restful 
+ web service la gi 
+SOAP xml
+REST json(hoc)
+
+API
+json trao đổi giữ app or web vs server
+vd json
+{
+chứa các fied
+}
+ 
+đồng bộ web & app sử dụng chung 1 server(java,php,.net)= sử dụng spring boot
+
+viết API phải có method post,get,put,delete,...
+//----------------------------------------
+JDBC: 
+-sử dụng các sql thuần (phụ thuộ hoàn toàn vào database)
+preparedstatement(chấp nhận tham số truyền vào) và statement (ko tham số)
+1)  Khởi tạo connection
+2) Tạo đối tượng Statement (người liên lạc)
+3) Thực hiện lấy hàng(Pass a SQL statement)
+4) Gửi hàng lên xe (Result Set)
+
+*********
+spring data JPA(spring 4)< JPA < JDBC
+- thư viện học cú pháp 
+- thao tác trên các DBMS
+select * from (JDBC) = findAll()
+save() (có id là cập nhật còn ko có là thêm mới)
+insert,data()
+findOne (truyền id để trả về)
+
+entity mapping table
+@Entity
+@Table
+@Column
+spring data jpa ko phụ thuộc vào DBMS 
+
+tblnew mapping newenity
+HQL: hibernate query language
+SQL native: truy vấn thuần
+
+2 công việc làm với spring data jpa
+- gọi spring data jpa
+-khai báo mysql connector trong spring boot
+//-----------------------------
+default 8080 đổi 8081
+//----------------------------------------------------------------
+jpa laf orm (Obj realtion mapping)
+orm hql(query cua jpa) va sql native
+
+one to many @OneToMany & @ManyToOne
+many to many @ManyToMany
+//-------------------------------------------
+3 lớp 
+presentation layer (viewer,controller:jsp;springboot:API)
+Business logic layger (springboot:service)
+DataAccess layer (dao,dto:servlet;springboot:repository)
+//--------
+trong repository
+khai báo @Repository
+Dependency injection sử dụng @Autowired
+API sử dụng service thì cần @Service ở thằng service
+
+JPA auditing: hỗ trợ createdate,modifileby
+//-------------
+phân trang 
+lấy tuần = lấy hết 
+lấy theo tìm kiếm
+lấy theo phân trang
+Cần:
+- gửi gì về server.       page, limit
+	localhost:8081/new?page=1&limit=2 (GET)
+- cần trả gì về client.   totalpage,page,list<data>
+Get: param để trên url
+
+
+logic phân trang:
+-số item 1 trang limit
+-số page totalpage
+-tổng số item dc trrảl à maxItem
+
+totalpage=totalitem div limit
+
+
+-vị trí đầu tiên của mỗi page là offset
+
